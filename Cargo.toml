@@ -1,0 +1,8 @@
+[package]
+name = "chessy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+femtovg = "0.2.10"
+glutin = "0.28.0"
