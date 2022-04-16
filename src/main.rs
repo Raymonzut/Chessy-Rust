@@ -79,18 +79,15 @@ fn main() {
                 }
                 WindowEvent::MouseWheel {
                     device_id: _,
-                    delta,
+                    delta: glutin::event::MouseScrollDelta::LineDelta(x, y),
                     ..
-                } => match delta {
-                    glutin::event::MouseScrollDelta::LineDelta(x, y) => {
-                        if swap_directions {
-                            zoom += *x as i32;
-                        } else {
-                            zoom += *y as i32;
-                        }
+                } => {
+                    if swap_directions {
+                        zoom += *x as i32;
+                    } else {
+                        zoom += *y as i32;
                     }
-                    _ => (),
-                },
+                }
                 WindowEvent::MouseInput {
                     device_id: _,
                     state: ElementState::Pressed,
